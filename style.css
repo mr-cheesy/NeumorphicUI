@@ -1,0 +1,271 @@
+:root {
+    --bg: #e0e0e0;
+    --text: #333;
+    --shadow-light: #ffffff;
+    --shadow-dark: #bebebe;
+    --button-bg: #e0e0e0;
+  }
+  
+  body.dark {
+    --bg: #1e1e1e;
+    --text: #eee;
+    --shadow-light: #2a2a2a;
+    --shadow-dark: #141414;
+    --button-bg: #1e1e1e;
+  }
+  
+  * {
+    box-sizing: border-box;
+    transition: all 0.4s ease;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px;
+    animation: fadeIn 0.8s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: var(--button-bg);
+    box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+    border-radius: 12px;
+    margin-bottom: 40px;
+  }
+  
+  nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: bold;
+  }
+  
+  .neumorphic-button {
+    background: var(--button-bg);
+    border: none;
+    border-radius: 12px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    margin: 10px;
+    color: var(--text);
+    box-shadow: 6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .neumorphic-button:hover {
+    transform: translateY(-4px);
+  }
+  
+  .toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--shadow-dark);
+    border-radius: 34px;
+  }
+  
+  .slider::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--text);
+    border-radius: 50%;
+    transition: transform 0.4s ease;
+  }
+  
+  input:checked + .slider::before {
+    transform: translateX(26px);
+  }
+  
+  input:checked + .slider {
+    background-color: var(--shadow-light);
+  }
+  /* Make buttons and layout responsive */
+body {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  nav a {
+    display: inline-block;
+    margin: 5px 10px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+    }
+  
+    .toggle-container {
+      justify-content: center;
+    }
+  
+    .neumorphic-button {
+      width: 100%;
+      max-width: 300px;
+      font-size: 1rem;
+      padding: 12px 20px;
+    }
+  
+    h1 {
+      font-size: 1.8rem;
+    }
+  
+    p {
+      font-size: 1rem;
+      padding: 0 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .neumorphic-button {
+      font-size: 0.95rem;
+      padding: 10px 16px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    nav {
+      font-size: 0.95rem;
+    }
+  
+    nav a {
+      margin: 4px 8px;
+    }
+  }
+
+.neumorphic-button:active,
+.neumorphic-button.touching {
+  transform: scale(0.96);
+  box-shadow: inset 4px 4px 10px var(--shadow-dark),
+              inset -4px -4px 10px var(--shadow-light);
+}
+@keyframes swipe-right {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(40px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes swipe-left {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(-40px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes swipe-up {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-40px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes swipe-down {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(40px); }
+  100% { transform: translateY(0); }
+}
+
+.neumorphic-button.swipe-right {
+  animation: swipe-right 0.4s ease;
+}
+
+.neumorphic-button.swipe-left {
+  animation: swipe-left 0.4s ease;
+}
+
+.neumorphic-button.swipe-up {
+  animation: swipe-up 0.4s ease;
+}
+
+.neumorphic-button.swipe-down {
+  animation: swipe-down 0.4s ease;
+}
+  .neumorphic-button.glow {
+    animation: glow-click 0.6s ease;
+  }
+  :root {
+    --neon-green: #00ff91;
+    --teal: #008080;
+  }
+  .neumorphic-button:hover {
+    box-shadow: 0 0 12px var(--neon-green), 0 0 20px var(--neon-green);
+    transition: box-shadow 0.3s ease;
+  }
+  @keyframes glow-click-teal {
+    0% {
+      box-shadow: 0 0 0px var(--teal), 0 0 0px var(--teal);
+    }
+    50% {
+      box-shadow: 0 0 15px var(--teal), 0 0 25px var(--teal);
+    }
+    100% {
+      box-shadow: 6px 6px 12px var(--shadow-dark),
+                  -6px -6px 12px var(--shadow-light);
+    }
+  }
+  
+  .neumorphic-button.glow {
+    animation: glow-click-teal 0.6s ease;
+  }
+  .neumorphic-button {
+    transition: box-shadow 0.7s ease-in-out;
+  }
+  
+  .neumorphic-button:hover {
+    box-shadow: 0 0 20px var(--neon-green), 0 0 35px var(--neon-green);
+  }
+  .neumorphic-button {
+    /* Smooth transition for box-shadow */
+    transition: box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .neumorphic-button:hover {
+    box-shadow: 0 0 18px var(--neon-green), 0 0 32px var(--neon-green);
+  }
+      
